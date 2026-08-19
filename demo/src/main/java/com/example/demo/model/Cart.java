@@ -4,7 +4,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+
+import java.util.List;
 
 @Entity
 public class Cart {
@@ -17,4 +20,7 @@ public class Cart {
 
     @OneToOne(mappedBy = "cart")
     private User user;
+
+    @OneToMany(mappedBy = "cart")
+    private List<CartItem> items;
 }
